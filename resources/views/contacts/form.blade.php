@@ -16,6 +16,29 @@
               <div class="form-horizontal">
                 <div class="row">
                   <div class="col-md-8">
+                   
+                   @if(count($errors))
+                   
+                       <div class="alert alert-danger">
+                          
+                          <ul>
+                             
+                              @foreach($errors->all() as $error) 
+                              
+                                    <li>{{ $error }}</li>
+                                                              
+                                                                                                                  
+                              @endforeach
+                              
+                              
+                          </ul>
+                           
+                           
+                    </div>
+                   
+                   
+                   @endif
+                   
                     <div class="form-group">
                       <label for="name" class="control-label col-md-3">Name</label>
                       <div class="col-md-8">
