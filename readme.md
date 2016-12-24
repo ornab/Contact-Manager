@@ -1,4 +1,6 @@
-# Laravel PHP Framework
+# Contact Management Application with Laravel & Ajax
+
+Contact Management Application with Laravel & Ajax
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
