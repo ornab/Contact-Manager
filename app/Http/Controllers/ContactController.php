@@ -24,4 +24,12 @@ class ContactController extends Controller
         
         return view('contacts.index', /*['contacts'=>$contacts]*/ compact('contacts'));
     }
+    
+    
+     public function create(){
+         
+         
+         return view('contacts.form');
+         
+     }    
 }
