@@ -11,6 +11,14 @@ class ContactController extends Controller
     
     private $limit = 5;
     
+    private  $rules = [
+         
+         'name' => ['required','min:5'],
+         'company' => ['required'],
+         'email' => ['required', 'email']
+         
+     ];   
+    
     public function index(Request $request){
         
         if($group_id= ($request->get('group_id'))){
@@ -48,19 +56,27 @@ class ContactController extends Controller
     
     public function store(Request $request){
         
-     $rules = [
-         
-         'name' => ['required','min:5'],
-         'company' => ['required'],
-         'email' => ['required', 'email']
-         
-     ];   
+      
         
-        $this->validate($request, $rules);
+        $this->validate($request, $this->rules);
         
         Contact::create($request->all());
         
         return redirect('contacts')->with('message', 'Contact Saved!');
+        
+    }
+
+       public function update($id, Request $request){
+        
+    
+        
+        $this->validate($request, $this->rules);
+           
+        $contact = Contact::find($id);   
+        
+        $contact->update($request->all());
+        
+        return redirect('contacts')->with('message', 'Contact Updated!');
         
     }
 
