@@ -32,9 +32,19 @@ class ContactController extends Controller
      public function create(){
          
          
-         return view('contacts.form');
+         return view('contacts.create');
          
      }  
+    
+    public function edit($id){
+         
+          $contact = Contact::find($id);
+        
+         return view('contacts.edit', compact('contact'));
+         
+     }  
+    
+    
     
     public function store(Request $request){
         

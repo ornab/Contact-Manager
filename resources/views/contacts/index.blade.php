@@ -27,7 +27,7 @@
                 </td>
                 <td width="100" class="middle">
                   <div>
-                    <a href="#" class="btn btn-circle btn-default btn-xs" title="Edit">
+                    <a href="{{route('contacts.edit', ['id'=>$contact->id])}}" class="btn btn-circle btn-default btn-xs" title="Edit">
                       <i class="glyphicon glyphicon-edit"></i>
                     </a>
                     <a href="#" class="btn btn-circle btn-danger btn-xs" title="Edit">
