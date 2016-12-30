@@ -44,11 +44,11 @@
             </a>
           </div>
           
-               <form class="navbar-form navbar-right" role="search">
+               <form action="{{route('contacts.index')}}" class="navbar-form navbar-right" role="search">
                    
                    <div class="input-group">
                        
-                       <input type="text" class="form-control" placeholder="Search...." />
+                       <input type="text" name="term" value="{{Request::get("term")}}" class="form-control" placeholder="Search...." />
                        
                        
                          <span class="input-group-btn">

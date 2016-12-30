@@ -31,6 +31,29 @@ class ContactController extends Controller
         else {
             $contacts = Contact::orderBy('id', 'desc')->paginate($this->limit);
         }
+        
+        $contacts = Contact::where(function($query) use ($request){
+            
+            if ($group_id = ($request->get('group_id'))) {
+                
+                
+                
+                $query->where('group_id', $group_id);
+            }
+            
+            if(($term = $request->get('term'))){
+                
+                $keywords = '%'. $term . '%';
+                $query->orWhere('name', 'LIKE', $keywords);
+                $query->orWhere('company', 'LIKE', $keywords);
+                $query->orWhere('email', 'LIKE', $keywords);
+                
+            }
+            
+        })
+            
+            ->orderBy('id', 'desc')
+            ->paginate($this->limit);
 
     	return view('contacts.index', compact('contacts'));
     }
