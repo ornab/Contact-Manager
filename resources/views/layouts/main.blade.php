@@ -43,6 +43,33 @@
               Add Contact
             </a>
           </div>
+          
+               <form class="navbar-form navbar-right" role="search">
+                   
+                   <div class="input-group">
+                       
+                       <input type="text" class="form-control" placeholder="Search...." />
+                       
+                       
+                         <span class="input-group-btn">
+                             
+                             <button class="btn btn-default" type="submit">
+                                
+                                <i class="glyphicon glyphicon-search"></i>
+                                 
+                                  
+                                 
+                             </button>
+                             
+                         </span>
+                       
+                       
+                   </div>
+                   
+                   
+               </form>
+          
+          
         </div>
       </div>
     </nav>
