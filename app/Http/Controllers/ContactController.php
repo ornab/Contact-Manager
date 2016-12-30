@@ -22,6 +22,38 @@ class ContactController extends Controller
     {
         $this->upload_dir = base_path() . '/' . $this->upload_dir;
     }
+    
+    
+    public function autocomplete(Request $request){
+        
+        if($request->ajax()) {
+            
+            return Contact::select(['id','name as value'])->where(function($query) use ($request){
+            
+             
+            if(($term = $request->get('term'))){
+                
+                $keywords = '%'. $term . '%';
+                $query->orWhere('name', 'LIKE', $keywords);
+                $query->orWhere('company', 'LIKE', $keywords);
+                $query->orWhere('email', 'LIKE', $keywords);
+                
+            }
+            
+        })
+            
+            ->orderBy('name', 'asc')
+            ->take(5)
+            ->get();
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
 
     public function index(Request $request)
     {

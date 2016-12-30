@@ -15,4 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('contacts/autocomplete', ['uses' => 'ContactController@autocomplete', 'as' => 'contacts.autocomplete']);
+
 Route::resource('contacts','ContactController');
+
